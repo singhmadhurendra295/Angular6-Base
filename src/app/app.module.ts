@@ -10,14 +10,16 @@ import { JwtInterceptor, ErrorInterceptor } from './helper';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './user/login.component';
 import { ProductModule } from './products/product.module';
+import { ForgotPwdComponent } from './user/forgetPwd.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPwdComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { ProductModule } from './products/product.module';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
+      { path: 'forgot-password', component: ForgotPwdComponent },
       { path: '', component: WelcomeComponent, canActivate: [AuthGuard] },
       // otherwise redirect to home
       { path: '**', redirectTo: '' }
