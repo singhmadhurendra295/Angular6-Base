@@ -1,0 +1,13 @@
+<div class="row mrg0 hidden-xs" *ngIf="isLoggedIn$ | async as isLoggedIn">
+  <div class="col-md-8 col-lg-8 col-sm-8">
+    <div class="logo_div">
+      <div class="logo" routerLink="user-management"></div>
+    </div>
+  </div>
+  <div class="col-md-4 col-lg-4 col-sm-4 right_panel">
+    <div class="row mrg0">
+      <div class="col-md-6 col-lg-8 col-sm-6 text-right pd0 user_name"><i class="material-icons gray_icon user_name">person</i> <span>Hello Admin</span></div>
+      <div class="col-md-4 col-lg-4 col-sm-4 logout link" (click)="onLogout()" *ngIf="isLoggedIn"><a><i class="material-icons gray_icon clickable" matTooltip="Logout">exit_to_app</i>&nbsp;<span>Logout</span></a></div>
+    </div>
+  </div>
+</div>

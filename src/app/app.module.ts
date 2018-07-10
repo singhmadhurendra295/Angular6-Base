@@ -13,13 +13,15 @@ import { WelcomeComponent } from './home/welcome.component';
 import { LoginComponent } from './user/login.component';
 import { ProductModule } from './products/product.module';
 import { ForgotPwdComponent } from './user/forgetPwd.component';
+import { HeaderComponent } from './shared/header.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
-    ForgotPwdComponent
+    ForgotPwdComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
