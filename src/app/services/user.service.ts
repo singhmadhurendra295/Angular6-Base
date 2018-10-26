@@ -6,25 +6,32 @@ import { User } from '../models/user';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-
-  getById(id: number) {
-    return this.http.get(`/users/` + id);
-  }
+  baseUrl: string = 'http://localhost:3000/api/users/';
 
   register(user: User) {
-    return this.http.post(`/users/register`, user);
+    return this.http.post(`users/register`, user);
   }
 
-  update(user: User) {
-    return this.http.put(`/users/` + user._id, user);
+  updateUser(user: User) {
+    console.log("update user",user._id,user);
+    return this.http.put(this.baseUrl + user._id, user);
   }
 
   delete(id: number) {
-    return this.http.delete(`/users/` + id);
+    return this.http.delete(this.baseUrl + id);
   }
 
   getAll() {
-    return this.http.get<User[]>(`/users`);
+    return this.http.get<User[]>(this.baseUrl + '/list');
   }
+
+  createUser(user: User) {
+    return this.http.post(this.baseUrl + '/register', user);
+  }
+
+  getUserById(id: string) {
+    return this.http.get<User>(this.baseUrl + '/' + id);
+  }
+
 
 }

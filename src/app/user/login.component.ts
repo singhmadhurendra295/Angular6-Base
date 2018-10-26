@@ -44,9 +44,10 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
         data => {
-          console.log(data);
+          console.log(this.returnUrl);
           if(data.status){
             this.router.navigate([this.returnUrl]);
+            //this.router.navigate(['list-user']);
           }else{
             this.alertService.success(data.message);
           }
